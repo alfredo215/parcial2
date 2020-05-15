@@ -5,9 +5,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import com.alfredo.Dao.datosDAO;
+import com.alfredo.Dao.loguinDAO;
 import com.alfredo.model.Consulta;
+import com.alfredo.model.Usuarioparcial;
 import com.google.gson.Gson;
 
 /**
@@ -52,20 +56,33 @@ public class ServeletDatos extends HttpServlet {
 		}
 		
 		String acction=request.getParameter("btn");
+		System.out.println(acction);
+		
+		HttpSession seccion = (HttpSession) request.getSession();
+		String Usuariovariable = (String)seccion.getAttribute("user");
 		
 		 if(acction.equals("Actualizar")) {
+			 if(Usuariovariable==null){
+				 JOptionPane.showMessageDialog(null, "No tienes permitido realizar esa accion porfabor inicia Session");
+				}else {
 		cl.setId(Integer.parseInt(id));
 		cl.setNombre(nombrepr);
 		cl.setApellido(apellidopr);
 
 		
 		cldao.actualizarDatos(cl);
+				}
 		}
 		else if(acction.equals("Eliminar")) {
+			if(Usuariovariable==null){
+				JOptionPane.showMessageDialog(null, "No tienes permitido realizar esa accion porfabor inicia Session");
+			}else {
 			cl.setId(Integer.parseInt(id));
 			
 			cldao.eliminarDatos(cl);
+			}
 		};
+	
 		response.sendRedirect("index.jsp");
 		
 		
@@ -87,8 +104,36 @@ public class ServeletDatos extends HttpServlet {
 			
 			System.out.println(e);
 		}
+		//-------------------------------------------------------
+		// Loguin
+		String usu = request.getParameter("user");
+		String contra = request.getParameter("pass");
 		
 		
+		
+		Usuarioparcial user = new Usuarioparcial();
+		
+		loguinDAO usuDao = new loguinDAO();
+		
+		user.setNombre(usu);
+		user.setContrasenia(contra);
+		
+		int verificacion=usuDao.EntradaUsuario(user).size();
+		if(verificacion==1) {
+			
+			
+			HttpSession seccion = request.getSession(true);
+			seccion.setAttribute("user",usu);
+			
+			response.sendRedirect("index.jsp");
+		}else if(verificacion==0){
+			
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Usuario o contrasenia incorrectos");
+		}
+		
+		//-------------------------------
 		//doGet(request, response);
 	}
 

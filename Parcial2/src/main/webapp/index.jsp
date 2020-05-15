@@ -21,7 +21,9 @@
 				<td>${item.apellido}</td>
 				<td>${item.nombre}</td>
 				<td>${item.id}</td>
-							
+						
+					
+				
 				<td><a href="ServeletDatos?btn=Eliminar&Id=${item.id}" class = "btn btn-warning">Eliminar</a>
 				<a href="Actualizar.jsp?idBus=${item.id}&Nom=${item.nombre}&Ape=${item.apellido}" class = "btn btn-danger">Modificar</a>
 				

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ServeletUser" method="post">
+<form action="ServeletDatos" method="post">
 		<!-- Usuario-->
 		<label for="username">Usuario</label>
 		<input type="text" placeholder="Introdusca usuario" name="user">
