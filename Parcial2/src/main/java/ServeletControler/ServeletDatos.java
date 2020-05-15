@@ -64,11 +64,12 @@ public class ServeletDatos extends HttpServlet {
 		 if(acction.equals("Actualizar")) {
 			 if(Usuariovariable==null){
 				 JOptionPane.showMessageDialog(null, "No tienes permitido realizar esa accion porfabor inicia Session");
+				 response.sendRedirect("Login.jsp");
 				}else {
 		cl.setId(Integer.parseInt(id));
 		cl.setNombre(nombrepr);
 		cl.setApellido(apellidopr);
-
+		response.sendRedirect("index.jsp");
 		
 		cldao.actualizarDatos(cl);
 				}
@@ -76,14 +77,13 @@ public class ServeletDatos extends HttpServlet {
 		else if(acction.equals("Eliminar")) {
 			if(Usuariovariable==null){
 				JOptionPane.showMessageDialog(null, "No tienes permitido realizar esa accion porfabor inicia Session");
+				response.sendRedirect("Login.jsp");
 			}else {
 			cl.setId(Integer.parseInt(id));
-			
 			cldao.eliminarDatos(cl);
+			response.sendRedirect("index.jsp");
 			}
 		};
-	
-		response.sendRedirect("index.jsp");
 		
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());

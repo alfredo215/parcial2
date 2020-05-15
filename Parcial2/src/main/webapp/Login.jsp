@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -16,6 +17,8 @@
 		<input type="password" placeholder="Introdusca contraseña"  name="pass">
 
 		<input type="submit" value="Entrar">
+		<br>
+		<a href="index.jsp" class = "btn btn-success">Tabla</a>
 
 
 	</form>
