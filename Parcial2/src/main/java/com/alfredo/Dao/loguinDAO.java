@@ -16,12 +16,12 @@ public class loguinDAO {
 		EntityManager em;
 		EntityManagerFactory emf;
 		
-		emf = Persistence.createEntityManagerFactory("Proyecto-Login");
+		emf = Persistence.createEntityManagerFactory("Parcial2");
 		em = emf.createEntityManager();
 		
 		try {
 			em.getTransaction().begin();
-			User = em.createQuery("from TbUsuariosp as u where u.usuario='"+usu.getNombre()+"' and u.contrasenia='"+usu.getContrasenia()+"'").getResultList();
+			User = em.createQuery("from Usuarioparcial as u where u.nombre='"+usu.getNombre()+"' and u.contrasenia='"+usu.getContrasenia()+"'").getResultList();
 			
 			em.getTransaction().commit();
 			

@@ -3,27 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%@page contentType="text/html"%>
-	<%@page pageEncoding="UTF-8"%>
-	<meta charset="utf-8">
+<meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
-
 </head>
 <body>
-
 <form action="ServeletUser" method="post">
-		
+		<!-- Usuario-->
 		<label for="username">Usuario</label>
 		<input type="text" placeholder="Introdusca usuario" name="user">
-		
-		<label for="password">Contrasenia</label>
-		<input type="password" placeholder="Introdusca contrasenia"  name="pass">
+		<!-- Usuario-->
+		<label for="password">Contraseña</label>
+		<input type="password" placeholder="Introdusca contraseña"  name="pass">
 
 		<input type="submit" value="Entrar">
 
 
 	</form>
-
 </body>
 </html>

@@ -39,7 +39,7 @@
 		
 </script>
 <body>
-				<a href="Session.jsp" class = "btn">INICIARSESSION</a>
+				<a href="Login.jsp" class = "btn">INICIARSESSION</a>
  				<input type="submit" name="btn" value="CARGARDATOS" id="carga">
 
 
